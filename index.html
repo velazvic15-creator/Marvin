@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feliz Cumpleaños 💻</title>
-    <!-- Link a Google Fonts Montserrat -->
+    <!-- Google Fonts Montserrat -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -14,10 +14,10 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
             flex-direction: column;
             text-align: center;
+            margin: 0;
+            padding: 20px;
         }
 
         h1 {
@@ -44,14 +44,20 @@
             font-style: italic;
         }
 
-        img {
+        .images-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
             margin-top: 2rem;
-            max-width: 300px;
+        }
+
+        .images-container img {
+            max-width: 250px;
             border-radius: 15px;
             animation: float 3s ease-in-out infinite;
         }
 
-        /* Animación flotante para la imagen */
         @keyframes float {
             0% { transform: translateY(0px); }
             50% { transform: translateY(-10px); }
@@ -71,8 +77,13 @@
 
     <p class="message">Amor, te deseo un día lleno de alegría, risas y todos tus sueños cumplidos.</p>
 
-    <!-- Cambia la imagen aquí: solo reemplaza "tu-imagen.jpg" con la URL de la nueva imagen -->
-    <img src="tu-imagen.jpg" alt="Imagen especial para él">
+    <div class="images-container">
+        <!-- Reemplaza los nombres por tus imágenes subidas al repo -->
+        <img src="imagen1.jpg" alt="Imagen especial 1">
+        <img src="imagen2.jpg" alt="Imagen especial 2">
+        <img src="imagen3.jpg" alt="Imagen especial 3">
+        <img src="imagen4.jpg" alt="Imagen especial 4">
+    </div>
 
 </body>
 </html>
