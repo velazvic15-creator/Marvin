@@ -1,101 +1,78 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>¡Feliz cumpleaños, Marvin! 🎉</title>
-  <style>
-    body { 
-      margin: 0; font-family: sans-serif; 
-      background: #f8f5f2; color: #000; 
-      display: flex; justify-content: center; align-items: center; min-height: 100vh;
-      flex-direction: column; text-align: center; padding: 20px;
-    }
-    .card { 
-      background: #fff; 
-      border-radius: 16px; 
-      padding: 24px; 
-      max-width: 600px; 
-      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-    }
-    h1 { color: #603808; }
-    .typewriter { 
-      display: inline-block; border-right: 2px solid #b6713d; 
-      white-space: nowrap; overflow: hidden; 
-      font-size: 1.4em; margin-bottom: 16px; 
-    }
-    p { line-height: 1.5; color: #333; }
-    button { 
-      margin-top: 16px; padding: 10px 16px; border: none; 
-      border-radius: 999px; font-size: 1.2em; cursor: pointer; 
-      background: #e0a96d; color: #fff; font-weight: bold;
-    }
-    .gallery { 
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 20px; 
-    }
-    .gallery img { 
-      width: 100%; aspect-ratio: 1/1; object-fit: cover; 
-      border-radius: 12px; border: 2px solid #b6713d;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Cumpleaños 💻</title>
+    <!-- Link a Google Fonts Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+            animation: shine 2s infinite alternate;
+        }
+
+        /* Animación estilo anime (brillo/latido) */
+        @keyframes shine {
+            0% { text-shadow: 0 0 5px #ff6; transform: scale(1); }
+            50% { text-shadow: 0 0 20px #ff6, 0 0 30px #f90; transform: scale(1.05); }
+            100% { text-shadow: 0 0 5px #ff6; transform: scale(1); }
+        }
+
+        p {
+            font-size: 1.3rem;
+            max-width: 600px;
+        }
+
+        .message {
+            margin-top: 1rem;
+            font-style: italic;
+        }
+
+        img {
+            margin-top: 2rem;
+            max-width: 300px;
+            border-radius: 15px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* Animación flotante para la imagen */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .heart {
+            color: #d9534f;
+        }
+    </style>
 </head>
 <body>
-  <div class="card">
     <h1>
-      <span class="typewriter" id="typeTarget"></span>
+        ¡Feliz cumpleaños, mi <span class="heart">corazón de melón! ❤️</span><br>
+        Eres mi ingeniero favorito y mi persona favorita 💻
     </h1>
-    <p id="mensajePersonal"></p>
 
-    <!-- Botón de corazones -->
-    <button id="loveBtn">💖🏀</button>
+    <p class="message">Amor, te deseo un día lleno de alegría, risas y todos tus sueños cumplidos.</p>
 
-    <!-- Galería de fotos -->
-    <div class="gallery">
-      <img src="https://picsum.photos/seed/cumple1/600" alt="Recuerdo 1" />
-      <img src="https://picsum.photos/seed/cumple2/600" alt="Recuerdo 2" />
-      <img src="https://picsum.photos/seed/cumple3/600" alt="Recuerdo 3" />
-      <img src="https://picsum.photos/seed/cumple4/600" alt="Recuerdo 4" />
-      <img src="https://picsum.photos/seed/cumple5/600" alt="Recuerdo 5" />
-      <img src="https://picsum.photos/seed/cumple6/600" alt="Recuerdo 6" />
-    </div>
-  </div>
+    <!-- Cambia la imagen aquí: solo reemplaza "tu-imagen.jpg" con la URL de la nueva imagen -->
+    <img src="tu-imagen.jpg" alt="Imagen especial para él">
 
-  <script>
-    const CONFIG = {
-      nombre: 'Corazón de melón 💖',
-      fechaTexto: '4 de Septiembre',
-      mensajePrincipal: '¡Feliz cumpleaños, mi corazón de melón! 🍈❤️ Eres mi ingeniero favorito y mi persona favorita 💻',
-      mensajePersonal: 'Amor, gracias por ser una persona tan increíble. Cada momento a tu lado es especial y me hace feliz. Estoy muy contenta de compartir tantos momentos contigo, corazón de melón 💖'
-    };
-
-    // Aplicar mensajes
-    document.getElementById('typeTarget').textContent = CONFIG.mensajePrincipal;
-    document.getElementById('mensajePersonal').textContent = CONFIG.mensajePersonal;
-
-    // Typewriter
-    const target = document.getElementById('typeTarget');
-    const fullText = target.textContent.trim();
-    target.textContent = '';
-    let i = 0;
-    const typer = setInterval(() => {
-      target.textContent = fullText.slice(0, i++) + (i % 2 === 0 ? '|' : '');
-      if (i > fullText.length) { clearInterval(typer); target.textContent = fullText; }
-    }, 30);
-
-    // Botón de corazones y balones
-    const loveBtn = document.getElementById('loveBtn');
-    loveBtn.addEventListener('click', () => {
-      for (let j = 0; j < 25; j++) {
-        const el = document.createElement('div');
-        el.textContent = Math.random() > 0.5 ? '💖' : '🏀';
-        el.style.position = 'fixed';
-        el.style.left = Math.random() * window.innerWidth + 'px';
-        el.style.top = Math.random() * window.innerHeight + 'px';
-        el.style.fontSize = (14 + Math.random() * 20) + 'px';
-        document.body.appendChild(el);
-        setTimeout(() => el.remove(), 2000);
-      }
-    });
-  </script>
 </body>
 </html>
