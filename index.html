@@ -27,7 +27,6 @@
             animation: shine 2s infinite alternate;
         }
 
-        /* Animación estilo anime (brillo/latido) */
         @keyframes shine {
             0% { text-shadow: 0 0 5px #ff6; transform: scale(1); }
             50% { text-shadow: 0 0 20px #ff6, 0 0 30px #f90; transform: scale(1.05); }
@@ -44,20 +43,26 @@
             font-style: italic;
         }
 
-        .images-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
+        /* Collage de 5 imágenes */
+        .collage {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 200px);
+            gap: 10px;
             margin-top: 2rem;
+            width: 100%;
+            max-width: 800px;
         }
 
-        .images-container img {
-            max-width: 250px;
+        .collage img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             border-radius: 15px;
             animation: float 3s ease-in-out infinite;
         }
 
+        /* Animación flotante */
         @keyframes float {
             0% { transform: translateY(0px); }
             50% { transform: translateY(-10px); }
@@ -66,6 +71,12 @@
 
         .heart {
             color: #d9534f;
+        }
+
+        /* Ajuste para que la imagen central del collage sea más grande */
+        .collage img:nth-child(3) {
+            grid-column: span 2;
+            grid-row: span 2;
         }
     </style>
 </head>
@@ -77,12 +88,13 @@
 
     <p class="message">Amor, te deseo un día lleno de alegría, risas y todos tus sueños cumplidos.</p>
 
-    <div class="images-container">
+    <div class="collage">
         <!-- Reemplaza los nombres por tus imágenes subidas al repo -->
-        <img src="imagen1.jpg" alt="Imagen especial 1">
-        <img src="imagen2.jpg" alt="Imagen especial 2">
-        <img src="imagen3.jpg" alt="Imagen especial 3">
-        <img src="imagen4.jpg" alt="Imagen especial 4">
+        <img src="imagen1.jpg" alt="Imagen 1">
+        <img src="imagen2.jpg" alt="Imagen 2">
+        <img src="imagen3.jpg" alt="Imagen 3">
+        <img src="imagen4.jpg" alt="Imagen 4">
+        <img src="imagen5.jpg" alt="Imagen 5">
     </div>
 
 </body>
